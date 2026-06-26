@@ -3,262 +3,245 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-  <title>XHYVC2 — Living off the Land C2</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+  <title>XHYVC2</title>
   <style>
     :root {
-      --bg:        #0b0d0f;
-      --surface:   #111418;
-      --surface2:  #181c21;
-      --surface3:  #1e232a;
-      --border:    #252b34;
-      --border2:   #2e3542;
-      --accent:    #00d4ff;
-      --accent2:   #0099bb;
-      --accent-dim:#00d4ff22;
-      --red:       #ff4d6a;
-      --green:     #00e096;
-      --yellow:    #ffc107;
-      --purple:    #a78bfa;
-      --text:      #c9d1db;
-      --text2:     #8892a0;
-      --text3:     #555f6e;
-      --white:     #eef2f7;
+      --bg:       #0a0c0e;
+      --s1:       #0f1215;
+      --s2:       #141820;
+      --s3:       #1a1f28;
+      --b1:       #1e2530;
+      --b2:       #28303d;
+      --acc:      #c8ff00;
+      --acc2:     #9bbf00;
+      --acc-dim:  rgba(200,255,0,0.07);
+      --red:      #ff5555;
+      --yellow:   #ffcc44;
+      --green:    #44dd88;
+      --blue:     #5599ff;
+      --t1:       #dde3ec;
+      --t2:       #8a95a3;
+      --t3:       #4a5568;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'IBM Plex Sans', sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--t1);
       line-height: 1.6;
-      min-height: 100vh;
     }
 
     /* ── Header ── */
     header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 2rem 2rem 1.5rem;
-      position: relative;
+      background: var(--s1);
+      border-bottom: 1px solid var(--b1);
+      padding: 1.4rem 2rem;
     }
     .header-inner {
-      max-width: 1400px;
+      max-width: 1500px;
       margin: 0 auto;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 2rem;
     }
-    .logo-mark {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 2.2rem;
+    .logo {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.5rem;
       font-weight: 600;
-      color: var(--accent);
-      letter-spacing: -0.03em;
-      line-height: 1;
-      text-shadow: 0 0 30px var(--accent2);
+      color: var(--acc);
+      letter-spacing: 0.04em;
       flex-shrink: 0;
     }
-    .logo-mark span { color: var(--text3); font-weight: 400; }
-    .header-text h1 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .logo sub {
+      font-size: 0.55rem;
+      color: var(--t3);
+      letter-spacing: 0.1em;
+      display: block;
+      margin-top: -4px;
+      font-weight: 400;
     }
-    .header-text p {
-      font-size: 0.82rem;
-      color: var(--text2);
-      margin-top: 0.2rem;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .header-stats {
+    .header-counts {
       margin-left: auto;
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
     }
-    .hstat {
-      text-align: center;
-      font-family: 'JetBrains Mono', monospace;
+    .hcount {
+      text-align: right;
     }
-    .hstat-num {
-      display: block;
-      font-size: 1.4rem;
+    .hcount-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.2rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--t1);
+      display: block;
       line-height: 1;
     }
-    .hstat-label {
-      font-size: 0.65rem;
-      color: var(--text3);
+    .hcount-label {
+      font-size: 0.68rem;
+      color: var(--t3);
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
     }
 
     /* ── Layout ── */
     .layout {
       display: flex;
-      max-width: 1400px;
+      max-width: 1500px;
       margin: 0 auto;
-      min-height: calc(100vh - 120px);
+      min-height: calc(100vh - 75px);
     }
 
     /* ── Sidebar ── */
     .sidebar {
-      width: 280px;
+      width: 260px;
       flex-shrink: 0;
-      background: var(--surface);
-      border-right: 1px solid var(--border);
+      background: var(--s1);
+      border-right: 1px solid var(--b1);
+      position: sticky;
+      top: 0;
+      height: calc(100vh - 75px);
+      overflow: hidden;
       display: flex;
       flex-direction: column;
     }
     .sidebar-search {
-      padding: 1rem;
-      border-bottom: 1px solid var(--border);
+      padding: 0.85rem;
+      border-bottom: 1px solid var(--b1);
     }
     .sidebar-search input {
       width: 100%;
-      padding: 0.55rem 0.85rem;
+      padding: 0.5rem 0.75rem;
       background: var(--bg);
-      border: 1px solid var(--border2);
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text);
+      border: 1px solid var(--b2);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--t1);
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .sidebar-search input:focus {
-      border-color: var(--accent2);
-      box-shadow: 0 0 0 3px var(--accent-dim);
-    }
-    .sidebar-search input::placeholder { color: var(--text3); }
+    .sidebar-search input:focus { border-color: var(--acc2); }
+    .sidebar-search input::placeholder { color: var(--t3); }
 
     .sidebar-list {
       flex: 1;
       overflow-y: auto;
-      padding: 0.5rem 0;
     }
-    .sidebar-list::-webkit-scrollbar { width: 4px; }
-    .sidebar-list::-webkit-scrollbar-track { background: transparent; }
-    .sidebar-list::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+    .sidebar-list::-webkit-scrollbar { width: 3px; }
+    .sidebar-list::-webkit-scrollbar-thumb { background: var(--b2); }
 
     .sidebar-item {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
-      padding: 0.55rem 1rem;
+      gap: 0.6rem;
+      padding: 0.5rem 0.85rem;
       cursor: pointer;
-      transition: background 0.12s;
       border-left: 2px solid transparent;
+      transition: background 0.1s;
     }
-    .sidebar-item:hover { background: var(--surface2); }
+    .sidebar-item:hover { background: var(--s2); }
     .sidebar-item.active {
-      background: var(--accent-dim);
-      border-left-color: var(--accent);
+      background: var(--acc-dim);
+      border-left-color: var(--acc);
     }
     .sidebar-item.hidden { display: none; }
-    .sidebar-icon {
-      width: 26px; height: 26px;
-      border-radius: 6px;
-      background: var(--surface3);
+    .sidebar-svc-icon {
+      width: 22px; height: 22px;
+      border-radius: 4px;
+      background: var(--s3);
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
       flex-shrink: 0;
     }
-    .sidebar-icon img {
-      width: 18px; height: 18px;
+    .sidebar-svc-icon img {
+      width: 15px; height: 15px;
       object-fit: contain;
-      filter: brightness(0.85);
+      opacity: 0.7;
     }
-    .sidebar-icon-fb {
-      font-size: 0.6rem;
-      font-weight: 700;
-      color: var(--accent);
-      font-family: 'JetBrains Mono', monospace;
+    .sidebar-svc-fb {
+      font-size: 0.5rem;
+      font-weight: 600;
+      color: var(--acc2);
+      font-family: 'IBM Plex Mono', monospace;
       text-transform: uppercase;
     }
     .sidebar-label {
-      font-size: 0.83rem;
-      color: var(--text);
-      font-weight: 500;
+      font-size: 0.8rem;
+      color: var(--t2);
       flex: 1;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .sidebar-count {
-      font-size: 0.65rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text3);
-      background: var(--surface3);
-      padding: 0.1rem 0.4rem;
-      border-radius: 3px;
+    .sidebar-item.active .sidebar-label { color: var(--t1); }
+    .sidebar-proj-count {
+      font-size: 0.62rem;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--t3);
     }
 
-    /* ── Main Content ── */
-    .main-content {
+    /* ── Main ── */
+    .main {
       flex: 1;
       padding: 1.5rem 2rem;
       overflow-x: hidden;
     }
 
-    /* ── Home Panel ── */
-    #homePanel { }
-
-    .panel-heading {
+    /* ── Tile Grid (home) ── */
+    #homePanel {}
+    .grid-label {
       font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text3);
+      color: var(--t3);
+      font-family: 'IBM Plex Mono', monospace;
       margin-bottom: 1rem;
-      font-family: 'JetBrains Mono', monospace;
     }
-
     .tile-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1px;
+      border: 1px solid var(--b1);
+      border-radius: 6px;
+      overflow: hidden;
     }
     .tile {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
+      background: var(--s1);
       padding: 1.1rem 0.75rem;
       text-align: center;
       cursor: pointer;
-      transition: border-color 0.15s, background 0.15s, transform 0.15s;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 110px;
+      transition: background 0.12s;
+      border-right: 1px solid var(--b1);
+      border-bottom: 1px solid var(--b1);
     }
-    .tile:hover {
-      border-color: var(--accent2);
-      background: var(--surface2);
-      transform: translateY(-2px);
-    }
+    .tile:hover { background: var(--s2); }
     .tile.hidden { display: none; }
-    .tile img { width: 40px; height: 40px; object-fit: contain; margin-bottom: 0.5rem; opacity: 0.85; }
+    .tile img {
+      width: 32px; height: 32px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+      opacity: 0.75;
+    }
     .tile-text {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--text2);
-      text-transform: capitalize;
+      font-size: 0.75rem;
+      color: var(--t2);
       line-height: 1.3;
     }
-    .fallback-icon {
-      width: 40px; height: 40px;
-      border-radius: 8px;
-      background: var(--surface3);
-      border: 1px solid var(--border2);
+    .tile-fb {
+      width: 32px; height: 32px;
+      border-radius: 5px;
+      background: var(--s3);
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.75rem; font-weight: 700;
-      color: var(--accent);
-      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem; font-weight: 600;
+      color: var(--acc2);
+      font-family: 'IBM Plex Mono', monospace;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
     }
@@ -266,324 +249,397 @@
     /* ── Detail Panel ── */
     #detailPanel { display: none; }
 
-    .detail-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
+    .back-btn {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--t3);
+      cursor: pointer;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.04em;
     }
-    .detail-header-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      background: var(--surface);
-      border: 1px solid var(--border2);
+    .back-btn:hover { color: var(--t1); }
+
+    .detail-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--b1);
+    }
+    .detail-top-icon {
+      width: 44px; height: 44px;
+      border-radius: 8px;
+      background: var(--s2);
+      border: 1px solid var(--b1);
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
       flex-shrink: 0;
     }
-    .detail-header-icon img { width: 32px; height: 32px; object-fit: contain; }
-    .detail-header-fb {
-      font-size: 0.85rem; font-weight: 700;
-      color: var(--accent);
-      font-family: 'JetBrains Mono', monospace;
+    .detail-top-icon img { width: 28px; height: 28px; object-fit: contain; opacity: 0.8; }
+    .detail-top-icon-fb {
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--acc2);
+      font-family: 'IBM Plex Mono', monospace;
       text-transform: uppercase;
     }
-    .detail-header-info h2 {
-      font-size: 1.3rem; font-weight: 600;
-      color: var(--white);
+    .detail-top-info h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--t1);
       text-transform: capitalize;
+      line-height: 1.2;
     }
-    .detail-header-info p {
-      font-size: 0.8rem;
-      color: var(--text3);
-      font-family: 'JetBrains Mono', monospace;
+    .detail-top-meta {
+      font-size: 0.72rem;
+      color: var(--t3);
+      font-family: 'IBM Plex Mono', monospace;
+      margin-top: 0.3rem;
     }
-    .detail-actions {
+    .detail-copy-btn {
       margin-left: auto;
-      display: flex;
-      gap: 0.5rem;
-    }
-    .btn {
-      padding: 0.45rem 1rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-family: 'JetBrains Mono', monospace;
+      padding: 0.4rem 0.9rem;
+      background: var(--s2);
+      border: 1px solid var(--b2);
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--t2);
       cursor: pointer;
-      border: 1px solid var(--border2);
-      background: var(--surface2);
-      color: var(--text2);
-      transition: all 0.15s;
+      transition: all 0.12s;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
-    .btn:hover { background: var(--surface3); color: var(--white); border-color: var(--accent2); }
-    .btn.copied { background: #00e09622; border-color: var(--green); color: var(--green); }
+    .detail-copy-btn:hover { border-color: var(--t3); color: var(--t1); }
+    .detail-copy-btn.copied { border-color: var(--green); color: var(--green); }
 
-    /* ── Stats Row ── */
-    .stats-row {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
+    /* ── AV Risk Score ── */
+    .risk-block {
+      background: var(--s1);
+      border: 1px solid var(--b1);
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      overflow: hidden;
     }
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.75rem 1.1rem;
+    .risk-header {
+      padding: 0.7rem 1rem;
+      background: var(--s2);
+      border-bottom: 1px solid var(--b1);
       display: flex;
       align-items: center;
       gap: 0.6rem;
     }
-    .stat-card .snum {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--accent);
-      font-family: 'JetBrains Mono', monospace;
+    .risk-header-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--t2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .risk-header-label span {
+      color: var(--t3);
+      font-weight: 400;
+    }
+    .risk-body {
+      padding: 1rem;
+    }
+    .risk-score-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+    .risk-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 2.2rem;
+      font-weight: 600;
       line-height: 1;
+      width: 52px;
+      flex-shrink: 0;
     }
-    .stat-card .slabel {
+    .risk-num.safe   { color: var(--green); }
+    .risk-num.medium { color: var(--yellow); }
+    .risk-num.risky  { color: var(--red); }
+    .risk-bar-col {
+      flex: 1;
+    }
+    .risk-bar-track {
+      height: 5px;
+      background: var(--b2);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 0.3rem;
+    }
+    .risk-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+    .risk-bar-fill.safe   { background: var(--green); }
+    .risk-bar-fill.medium { background: var(--yellow); }
+    .risk-bar-fill.risky  { background: var(--red); }
+    .risk-verdict {
       font-size: 0.72rem;
-      color: var(--text3);
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--t3);
+      letter-spacing: 0.04em;
     }
-    .stat-card .sicon { font-size: 1.1rem; }
+    .risk-verdict.safe   { color: var(--green); }
+    .risk-verdict.medium { color: var(--yellow); }
+    .risk-verdict.risky  { color: var(--red); }
+    .risk-reason {
+      font-size: 0.82rem;
+      color: var(--t2);
+      line-height: 1.65;
+      border-top: 1px solid var(--b1);
+      padding-top: 0.75rem;
+    }
+    .risk-av-row {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .risk-av-tag {
+      font-size: 0.62rem;
+      font-family: 'IBM Plex Mono', monospace;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      border: 1px solid var(--b2);
+      color: var(--t3);
+    }
+    .risk-av-tag.detect { border-color: #ff555544; color: var(--red); background: #ff555510; }
+    .risk-av-tag.partial { border-color: #ffcc4444; color: var(--yellow); background: #ffcc4410; }
+    .risk-av-tag.miss { border-color: #44dd8844; color: var(--green); background: #44dd8810; }
+
+    /* ── Stats ── */
+    .stats-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      padding: 0.4rem 0.85rem;
+      background: var(--s2);
+      border: 1px solid var(--b1);
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--t2);
+    }
+    .stat-pill strong {
+      color: var(--t1);
+      font-weight: 600;
+    }
 
     /* ── Section Cards ── */
-    .section-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
+    .sec-card {
+      background: var(--s1);
+      border: 1px solid var(--b1);
+      border-radius: 6px;
       overflow: hidden;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
-    .section-header {
+    .sec-head {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.7rem 1rem;
-      background: var(--surface2);
-      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      background: var(--s2);
+      border-bottom: 1px solid var(--b1);
       cursor: pointer;
       user-select: none;
-      transition: background 0.12s;
     }
-    .section-header:hover { background: var(--surface3); }
-    .section-header .sec-label {
-      font-size: 0.82rem;
+    .sec-head:hover { background: var(--s3); }
+    .sec-head-label {
+      font-size: 0.72rem;
       font-weight: 600;
-      color: var(--white);
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--t2);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
-    .section-header .sec-count {
+    .sec-cnt {
       margin-left: auto;
-      font-size: 0.68rem;
-      background: var(--surface3);
-      color: var(--text3);
-      padding: 0.1rem 0.45rem;
-      border-radius: 3px;
-      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--t3);
+      background: var(--s3);
+      padding: 0.08rem 0.4rem;
+      border-radius: 2px;
     }
-    .section-header .chevron {
-      font-size: 0.6rem;
-      color: var(--text3);
-      transition: transform 0.2s;
-      margin-left: 0.3rem;
+    .sec-chev {
+      font-size: 0.55rem;
+      color: var(--t3);
+      transition: transform 0.18s;
+      margin-left: 0.25rem;
     }
-    .section-header.collapsed .chevron { transform: rotate(-90deg); }
-    .section-body.collapsed { display: none; }
+    .sec-head.collapsed .sec-chev { transform: rotate(-90deg); }
+    .sec-body.collapsed { display: none; }
 
     /* ── Projects ── */
-    .project-item {
+    .proj-item {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
-      padding: 0.55rem 1rem;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.1s;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid var(--b1);
+      transition: background 0.08s;
     }
-    .project-item:last-child { border-bottom: none; }
-    .project-item:hover { background: var(--surface2); }
-    .project-item a {
-      color: var(--accent);
+    .proj-item:last-child { border-bottom: none; }
+    .proj-item:hover { background: var(--s2); }
+    .proj-item a {
+      color: var(--blue);
       text-decoration: none;
-      font-size: 0.83rem;
-      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-family: 'IBM Plex Mono', monospace;
       word-break: break-all;
     }
-    .project-item a:hover { text-decoration: underline; }
+    .proj-item a:hover { text-decoration: underline; }
 
-    /* ── Detection Items ── */
-    .detection-group-title {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.45rem 1rem;
-      background: var(--surface2);
-      border-bottom: 1px solid var(--border);
-      font-size: 0.68rem;
+    /* ── Detection items ── */
+    .det-group-head {
+      padding: 0.38rem 1rem;
+      background: var(--s2);
+      border-bottom: 1px solid var(--b1);
+      font-size: 0.62rem;
       font-weight: 600;
-      color: var(--text3);
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--t3);
       text-transform: uppercase;
       letter-spacing: 0.07em;
-      font-family: 'JetBrains Mono', monospace;
     }
-    .detection-item {
+    .det-item {
       display: flex;
       align-items: flex-start;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem 0.5rem 1.2rem;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.83rem;
+      gap: 0.45rem;
+      padding: 0.45rem 1rem 0.45rem 1.1rem;
+      border-bottom: 1px solid var(--b1);
+      font-size: 0.8rem;
     }
-    .detection-item:last-child { border-bottom: none; }
+    .det-item:last-child { border-bottom: none; }
     .det-tag {
       flex-shrink: 0;
-      font-size: 0.58rem;
+      font-size: 0.55rem;
       font-weight: 700;
-      padding: 0.12rem 0.35rem;
-      border-radius: 3px;
+      padding: 0.1rem 0.3rem;
+      border-radius: 2px;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      font-family: 'JetBrains Mono', monospace;
-      margin-top: 0.15rem;
+      font-family: 'IBM Plex Mono', monospace;
+      margin-top: 0.18rem;
+      border: 1px solid;
     }
-    .det-tag.tag-url     { background: #00d4ff18; color: var(--accent); border: 1px solid #00d4ff33; }
-    .det-tag.tag-ua      { background: #ff4d6a18; color: var(--red);    border: 1px solid #ff4d6a33; }
-    .det-tag.tag-file    { background: #ffc10718; color: var(--yellow);  border: 1px solid #ffc10733; }
-    .det-tag.tag-process { background: #a78bfa18; color: var(--purple);  border: 1px solid #a78bfa33; }
-    .det-tag.tag-logic   { background: #00e09618; color: var(--green);   border: 1px solid #00e09633; }
-    .det-tag.tag-ref     { background: var(--surface3); color: var(--text3); border: 1px solid var(--border2); }
-    .det-tag.tag-other   { background: var(--surface3); color: var(--text3); border: 1px solid var(--border2); }
+    .tag-url     { color: #5599ff; border-color: #5599ff44; background: #5599ff0e; }
+    .tag-ua      { color: var(--red); border-color: #ff555544; background: #ff55550e; }
+    .tag-file    { color: var(--yellow); border-color: #ffcc4444; background: #ffcc440e; }
+    .tag-process { color: #bb88ff; border-color: #bb88ff44; background: #bb88ff0e; }
+    .tag-logic   { color: var(--green); border-color: #44dd8844; background: #44dd880e; }
+    .tag-ref     { color: var(--t3); border-color: var(--b2); background: var(--s3); }
+    .tag-other   { color: var(--t3); border-color: var(--b2); background: var(--s3); }
     .det-tool {
-      font-size: 0.65rem;
+      font-size: 0.58rem;
       font-weight: 600;
-      padding: 0.08rem 0.3rem;
-      border-radius: 3px;
-      background: var(--surface3);
-      color: var(--text2);
-      font-family: 'JetBrains Mono', monospace;
+      padding: 0.06rem 0.28rem;
+      border-radius: 2px;
+      background: var(--s3);
+      color: var(--t3);
+      font-family: 'IBM Plex Mono', monospace;
       flex-shrink: 0;
-      margin-top: 0.15rem;
+      margin-top: 0.18rem;
+      border: 1px solid var(--b2);
     }
-    .det-value {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
+    .det-val {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
       word-break: break-all;
-      color: var(--text2);
+      color: var(--t2);
       line-height: 1.5;
     }
-    .det-text {
-      font-size: 0.82rem;
+    .det-txt {
+      font-size: 0.8rem;
+      color: var(--t2);
+      line-height: 1.6;
       word-break: break-word;
-      color: var(--text2);
-      line-height: 1.5;
     }
-    .det-value a, .det-text a { color: var(--accent); text-decoration: none; }
-    .det-value a:hover, .det-text a:hover { text-decoration: underline; }
+    .det-val a, .det-txt a { color: var(--blue); text-decoration: none; }
+    .det-val a:hover, .det-txt a:hover { text-decoration: underline; }
 
-    .http-method {
+    .http-pill {
       display: inline-block;
-      font-size: 0.58rem; font-weight: 700;
-      padding: 0.08rem 0.28rem; border-radius: 2px;
-      margin-right: 0.2rem;
-      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem; font-weight: 700;
+      padding: 0.06rem 0.26rem;
+      border-radius: 2px;
+      margin-right: 0.18rem;
+      font-family: 'IBM Plex Mono', monospace;
       vertical-align: middle;
+      border: 1px solid;
     }
-    .http-get    { background: #00e09618; color: var(--green);  border: 1px solid #00e09633; }
-    .http-post   { background: #00d4ff18; color: var(--accent); border: 1px solid #00d4ff33; }
-    .http-put    { background: #ffc10718; color: var(--yellow);  border: 1px solid #ffc10733; }
-    .http-delete { background: #ff4d6a18; color: var(--red);    border: 1px solid #ff4d6a33; }
-    .http-head   { background: #a78bfa18; color: var(--purple);  border: 1px solid #a78bfa33; }
-    .http-other  { background: var(--surface3); color: var(--text3); border: 1px solid var(--border2); }
+    .http-get    { color: var(--green);  border-color: #44dd8844; background: #44dd880e; }
+    .http-post   { color: #5599ff; border-color: #5599ff44; background: #5599ff0e; }
+    .http-put    { color: var(--yellow); border-color: #ffcc4444; background: #ffcc440e; }
+    .http-delete { color: var(--red); border-color: #ff555544; background: #ff55550e; }
+    .http-head   { color: #bb88ff; border-color: #bb88ff44; background: #bb88ff0e; }
+    .http-other  { color: var(--t3); border-color: var(--b2); background: var(--s3); }
 
     /* ── Description ── */
-    .desc-section {
-      padding: 1.1rem;
-      font-size: 0.88rem;
-      color: var(--text);
+    .desc-body {
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: var(--t2);
       line-height: 1.75;
     }
-    .desc-section h1,.desc-section h2,.desc-section h3,
-    .desc-section h4,.desc-section h5,.desc-section h6 {
-      margin: 1.1rem 0 0.45rem;
-      color: var(--white); font-weight: 600;
+    .desc-body h1,.desc-body h2,.desc-body h3,
+    .desc-body h4,.desc-body h5,.desc-body h6 {
+      margin: 1rem 0 0.4rem;
+      color: var(--t1); font-weight: 600;
     }
-    .desc-section p { margin: 0.45rem 0; }
-    .desc-section img {
-      max-width: 100%; height: auto; border-radius: 6px;
-      margin: 0.65rem 0;
-      border: 1px solid var(--border);
+    .desc-body p { margin: 0.4rem 0; }
+    .desc-body img { max-width:100%; border-radius:4px; margin:0.6rem 0; border:1px solid var(--b1); }
+    .desc-body a { color: var(--blue); text-decoration: none; }
+    .desc-body a:hover { text-decoration: underline; }
+    .desc-body ul,.desc-body ol { margin: 0.3rem 0 0.3rem 1.3rem; }
+    .desc-body li { margin: 0.2rem 0; }
+    .desc-body code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8em;
+      background: var(--s3);
+      color: var(--acc2);
+      padding: 0.1rem 0.3rem;
+      border-radius: 2px;
     }
-    .desc-section a { color: var(--accent); }
-    .desc-section a:hover { text-decoration: underline; }
-    .desc-section ul,.desc-section ol { margin: 0.4rem 0 0.4rem 1.4rem; }
-    .desc-section li { margin: 0.2rem 0; }
-    .desc-section code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82em;
-      background: var(--surface3);
-      color: var(--accent);
-      padding: 0.12rem 0.32rem;
-      border-radius: 3px;
-    }
-    .desc-section pre {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.9rem;
-      margin: 0.65rem 0;
+    .desc-body pre {
+      background: var(--s2);
+      border: 1px solid var(--b1);
+      border-radius: 4px;
+      padding: 0.8rem;
+      margin: 0.6rem 0;
       overflow-x: auto;
     }
-    .desc-section pre code { background: none; padding: 0; color: var(--text); }
-    .desc-section blockquote {
-      border-left: 3px solid var(--accent2);
-      padding: 0.4rem 0.9rem;
-      margin: 0.65rem 0;
-      color: var(--text2);
-      background: var(--surface2);
-      border-radius: 0 4px 4px 0;
+    .desc-body pre code { background: none; padding: 0; color: var(--t1); }
+    .desc-body blockquote {
+      border-left: 2px solid var(--b2);
+      padding: 0.3rem 0.8rem;
+      margin: 0.6rem 0;
+      color: var(--t3);
+      background: var(--s2);
     }
 
-    /* ── Back button ── */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text3);
-      cursor: pointer;
-      margin-bottom: 1rem;
-      transition: color 0.15s;
-    }
-    .back-link:hover { color: var(--accent); }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 1rem 2rem;
-      font-size: 0.72rem;
-      color: var(--text3);
-      font-family: 'JetBrains Mono', monospace;
-      text-align: center;
-    }
-
-    /* ── Scrollbar global ── */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: var(--b2); border-radius: 2px; }
 
-    @media (max-width: 900px) {
-      .sidebar { width: 220px; }
-      .header-stats { display: none; }
+    @media (max-width: 860px) {
+      .sidebar { width: 200px; }
+      .header-counts { gap: 1rem; }
     }
-    @media (max-width: 700px) {
+    @media (max-width: 640px) {
       .layout { flex-direction: column; }
-      .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
-      .sidebar-list { max-height: 200px; }
-      .main-content { padding: 1rem; }
-      .tile-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+      .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid var(--b1); }
+      .sidebar-list { max-height: 180px; }
+      .main { padding: 1rem; }
     }
   </style>
 </head>
@@ -591,79 +647,854 @@
 
 <header>
   <div class="header-inner">
-    <div class="logo-mark">XHYVC2<span>_</span></div>
-    <div class="header-text">
-      <h1>Living off the Land C2</h1>
-      <p>// C2 frameworks abusing legitimate services to evade detection</p>
+    <div class="logo">
+      XHYVC2
+      <sub>living off the land c2 index</sub>
     </div>
-    <div class="header-stats" id="headerStats">
-      <div class="hstat">
-        <span class="hstat-num" id="hstatServices">—</span>
-        <span class="hstat-label">Services</span>
+    <div class="header-counts">
+      <div class="hcount">
+        <span class="hcount-num" id="hcServices">—</span>
+        <span class="hcount-label">Services</span>
       </div>
-      <div class="hstat">
-        <span class="hstat-num" id="hstatProjects">—</span>
-        <span class="hstat-label">C2 Projects</span>
+      <div class="hcount">
+        <span class="hcount-num" id="hcProjects">—</span>
+        <span class="hcount-label">C2 Projects</span>
       </div>
-      <div class="hstat">
-        <span class="hstat-num" id="hstatRules">—</span>
-        <span class="hstat-label">Detection Rules</span>
+      <div class="hcount">
+        <span class="hcount-num" id="hcRules">—</span>
+        <span class="hcount-label">Detection Rules</span>
       </div>
     </div>
   </div>
 </header>
 
 <div class="layout">
-  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-search">
-      <input type="text" id="searchInput" placeholder="filter services..." autocomplete="off">
+      <input type="text" id="searchInput" placeholder="filter..." autocomplete="off">
     </div>
     <div class="sidebar-list" id="sidebarList"></div>
   </aside>
 
-  <!-- Main content -->
-  <main class="main-content">
+  <main class="main">
     <div id="homePanel">
-      <div class="panel-heading">All Services — <span id="tileCount">0</span> indexed</div>
+      <div class="grid-label" id="gridLabel">loading...</div>
       <div class="tile-grid" id="tileGrid"></div>
     </div>
 
     <div id="detailPanel">
-      <div class="back-link" onclick="goBack()">&#8592; back to index</div>
+      <div class="back-btn" onclick="goBack()">&larr; index</div>
 
-      <div class="detail-header">
-        <div class="detail-header-icon" id="detailIconContainer"></div>
-        <div class="detail-header-info">
+      <div class="detail-top">
+        <div class="detail-top-icon" id="detailIconWrap"></div>
+        <div class="detail-top-info">
           <h2 id="detailTitle"></h2>
-          <p id="detailSubtitle"></p>
+          <div class="detail-top-meta" id="detailMeta"></div>
         </div>
-        <div class="detail-actions">
-          <button class="btn copy-link-btn" onclick="copyShareLink()">&#128279; copy link</button>
-          <button class="btn" onclick="goBack()">&#8592; back</button>
-        </div>
+        <button class="detail-copy-btn" onclick="copyLink()">copy link</button>
       </div>
 
       <div class="stats-row" id="statsRow"></div>
+      <div id="riskBlock"></div>
       <div id="detailContent"></div>
     </div>
   </main>
 </div>
 
-<footer>
-  xhyvc2 — a catalogue of C2 frameworks leveraging legitimate third-party services
-</footer>
-
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
 <script>
   let c2Data = {};
+
+  /* ─── AV Risk Score Database ─── */
+  const avRisk = {
+    "telegram": {
+      score: 4,
+      reason: "Telegram's bot API is widely used in legitimate automation. Most AV solutions and EDRs won't block outbound HTTPS to api.telegram.org by default. However, Defender for Endpoint and CrowdStrike have behavioral rules that flag non-browser processes polling /getUpdates at fixed intervals, particularly powershell.exe or unknown binaries. Detection rate has increased since 2023 with well-known implants like NineRAT and Lazarus campaigns.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "detect" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "partial" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "discord": {
+      score: 5,
+      reason: "Discord webhooks and bot tokens are extensively abused. Windows Defender has signatures for known Discord RAT payloads, and CrowdStrike's behavioral engine catches most Discord C2 implants that use the CDN for payload staging. The channel is somewhat burned due to high threat actor use — security teams actively watch cdn.discordapp.com traffic from non-game processes.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "detect" },
+        { name: "SentinelOne", rating: "detect" },
+        { name: "Elastic EDR", rating: "partial" },
+        { name: "Kaspersky", rating: "partial" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "slack": {
+      score: 7,
+      reason: "Slack API calls blend into corporate environments extremely well. No major AV has network-layer signatures for slack.com/api/ traffic. Detection relies entirely on behavioral EDR rules — catching non-Slack processes using Bot tokens or unusual polling patterns. In environments that allow Slack, this channel is very difficult to distinguish from normal use. Low detection across the board.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Slack": {
+      score: 7,
+      reason: "Slack API calls blend into corporate environments extremely well. No major AV has network-layer signatures for slack.com/api/ traffic. Detection relies entirely on behavioral EDR rules — catching non-Slack processes using Bot tokens or unusual polling patterns. In environments that allow Slack, this channel is very difficult to distinguish from normal use. Low detection across the board.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "gmail": {
+      score: 6,
+      reason: "Gmail SMTP/IMAP and OAuth flows are standard enterprise traffic. AV solutions typically whitelist Google infrastructure. The risk is behavioral — EDRs can catch processes using OAuth tokens outside expected apps. Defender for Endpoint has improved detection of email-based C2 patterns since 2024, but raw network detection remains very low.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "github": {
+      score: 5,
+      reason: "GitHub is a common payload staging platform. Windows Defender and most AVs have started flagging raw.githubusercontent.com downloads from powershell/cmd processes. CrowdStrike and SentinelOne have behavioral rules for scripts fetching from GitHub at execution time. The channel is partially burned — legitimate use is high but so is threat actor use, making behavioral detection more aggressive.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "detect" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "partial" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "google Drive": {
+      score: 7,
+      reason: "Google Drive API traffic is essentially invisible to most network security stacks. AV solutions don't block googleapis.com. Detection requires EDR behavioral analysis — catching non-Office processes using Drive OAuth tokens or unusual file sync patterns. Historically used by APT groups. Most AV vendors still have poor detection here.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "google Sheet": {
+      score: 7,
+      reason: "Google Sheets API is rarely blocked and blends with enterprise environments. Threat actors abuse it as a C2 channel by storing commands in cells and reading them via the Sheets API. AV network detection is essentially zero. EDR detection possible through process behavior, but requires very tuned rules.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "partial" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "google Calendar": {
+      score: 8,
+      reason: "Google Calendar API abuse is uncommon enough that very few AV/EDR products have signatures or behavioral rules for it. APT41 has used Calendar event descriptions as C2 channels. Detection requires very specific custom rules in EDR. Network-level detection is near zero as Google services are universally trusted.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "google Slides": {
+      score: 8,
+      reason: "Google Slides as a C2 channel is highly exotic. No major AV or EDR vendor has signatures specifically for Slides API abuse. Detection would rely on custom threat hunting rules. Effective in environments with heavy Google Workspace usage where the traffic is indistinguishable from normal.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Google Translate": {
+      score: 8,
+      reason: "Using Google Translate as a proxy/redirector is extremely uncommon in threat actor tooling. AV vendors do not flag translate.googleapis.com traffic. The technique is primarily useful as a domain fronting vector, and detection requires advanced network analytics rather than signature-based AV.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "cloudflare": {
+      score: 6,
+      reason: "Cloudflare Workers and Tunnels are legitimate services widely abused for C2. Cloudflare Tunnels in particular bypass most firewalls since traffic originates from inside the network. Some EDR products (CrowdStrike, SentinelOne) detect cloudflared.exe execution or its behavioral patterns, but the underlying traffic is HTTPS and difficult to inspect.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "partial" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft Teams": {
+      score: 6,
+      reason: "Microsoft Teams C2 using Graph API or webhooks is a significant threat in enterprise environments. Microsoft Defender for Endpoint has some behavioral rules, but raw Teams API traffic to graph.microsoft.com is almost never blocked. CrowdStrike and SentinelOne can sometimes detect the implant behavior at the process level rather than network level.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft Graph": {
+      score: 6,
+      reason: "Microsoft Graph API is a massive attack surface. Legitimate enterprise traffic to graph.microsoft.com is extremely high, making it very hard to detect C2 in the noise. AV products don't block Graph. Detection requires anomaly detection on API call patterns and OAuth token usage from unexpected processes.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft outlook": {
+      score: 5,
+      reason: "Outlook/Exchange as C2 is an established technique (EWS, Graph). Defender for Endpoint has improved detection of EWS-based C2 patterns. MailSniper and similar tools have signatures in most enterprise AV products. OAuth token abuse from non-Outlook processes is increasingly detected by CrowdStrike.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "detect" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "partial" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft Azure Blob Storage": {
+      score: 7,
+      reason: "Azure Blob Storage is used as a payload staging and exfiltration channel. blob.core.windows.net is practically universally trusted in corporate environments. AV detection is essentially network-level zero. EDR detection requires catching specific tools like ProxyBlob or unusual file patterns. Low detection overall.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft Azure Functions": {
+      score: 7,
+      reason: "Azure Functions endpoints (*.azurewebsites.net, *.azurewebsites.net) look like generic cloud traffic. No AV product has network-layer detection for this. EDR detection is process-behavioral. The technique requires a custom implant which may be caught by heuristics, but the network channel itself is virtually undetectable.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft Azure Application Proxy": {
+      score: 7,
+      reason: "Azure Application Proxy abuse for C2 tunneling is a sophisticated technique. Traffic goes through msappproxy.net which is Microsoft infrastructure and extremely trusted. No major AV or EDR product has signatures for this technique. Detection requires deep understanding of the proxy authentication flow.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "partial" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft Power Automate": {
+      score: 7,
+      reason: "Power Automate flows can be used to receive webhooks and relay commands. The traffic uses Microsoft infrastructure (flow.microsoft.com, make.powerautomate.com). No AV has signatures for this. Detection requires Microsoft 365 audit logs and Power Platform activity monitoring — outside the scope of traditional AV.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft Sharepoint": {
+      score: 6,
+      reason: "SharePoint as a C2 channel is similar to OneDrive — uses Graph API and Microsoft infrastructure. Defender for Endpoint has some detection for anomalous SharePoint access patterns, but traditional AV/EDR products have limited visibility into SharePoint API calls from processes.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft Printer": {
+      score: 8,
+      reason: "Printer protocol abuse (IPP, WSD) for C2 is highly exotic and has very limited detection coverage. No commercial AV product has signatures for this technique. It operates at protocol levels that most endpoint security tools do not monitor. Detection requires specialized network analysis.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft Tasks": {
+      score: 7,
+      reason: "Microsoft To-Do / Tasks via Graph API is an obscure C2 channel. No AV has signatures. Traffic goes over graph.microsoft.com and is indistinguishable from legitimate task sync. Very low detection across all products.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "onedrive": {
+      score: 6,
+      reason: "OneDrive C2 using Graph API is a well-documented technique. Defender for Endpoint has some detection for suspicious OneDrive API usage from non-Office processes. CrowdStrike has improved detection in 2024. However, in environments with heavy OneDrive use, the technique still has good evasion potential.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Microsoft OneDrive": {
+      score: 6,
+      reason: "OneDrive C2 using Graph API is a well-documented technique. Defender for Endpoint has some detection for suspicious OneDrive API usage from non-Office processes. CrowdStrike has improved detection in 2024. However, in environments with heavy OneDrive use, the technique still has good evasion potential.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "pastebin": {
+      score: 3,
+      reason: "Pastebin is one of the most overused C2 staging platforms and is heavily signatured. Windows Defender, most commercial AV, and network proxies actively block or flag pastebin.com/raw/ access from non-browser processes. This channel is largely burned for serious use. EDR products have high detection rates for powershell or cmd fetching from pastebin.",
+      av: [
+        { name: "Windows Defender", rating: "detect" },
+        { name: "CrowdStrike", rating: "detect" },
+        { name: "SentinelOne", rating: "detect" },
+        { name: "Elastic EDR", rating: "detect" },
+        { name: "Kaspersky", rating: "detect" },
+        { name: "ESET", rating: "detect" }
+      ]
+    },
+    "Pastebin": {
+      score: 3,
+      reason: "Pastebin is one of the most overused C2 staging platforms and is heavily signatured. Windows Defender, most commercial AV, and network proxies actively block or flag pastebin.com/raw/ access from non-browser processes. This channel is largely burned for serious use.",
+      av: [
+        { name: "Windows Defender", rating: "detect" },
+        { name: "CrowdStrike", rating: "detect" },
+        { name: "SentinelOne", rating: "detect" },
+        { name: "Elastic EDR", rating: "detect" },
+        { name: "Kaspersky", rating: "detect" },
+        { name: "ESET", rating: "detect" }
+      ]
+    },
+    "reddit": {
+      score: 6,
+      reason: "Reddit as a C2 channel (reading commands from post bodies or comments) has low network detection since oauth.reddit.com is trusted. The technique requires legitimate OAuth app credentials. Some EDR products can detect unusual reddit.com API calls from non-browser processes, but detection is inconsistent.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "twitter": {
+      score: 4,
+      reason: "Twitter/X as a C2 channel has historically been used by APT groups (APT28, etc.) and is known to security researchers. CrowdStrike and SentinelOne have some behavioral detection for non-browser processes accessing the Twitter API. Defender has improved detection since APT campaigns became public. The technique is partially burned.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "x": {
+      score: 4,
+      reason: "X (formerly Twitter) API-based C2 has partial detection coverage. Known for use by APT groups, security researchers have published detection rules. CrowdStrike and SentinelOne have updated signatures. Network-level detection is limited since api.x.com/twitter.com is broadly allowed.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "discord": {
+      score: 4,
+      reason: "Discord webhook and bot API abuse is extremely well-known. Most mature EDR products (CrowdStrike, SentinelOne) have detection rules for Discord-based RATs. Windows Defender detects many known Discord malware families. The channel is largely burned due to high volume of public tooling and research.",
+      av: [
+        { name: "Windows Defender", rating: "detect" },
+        { name: "CrowdStrike", rating: "detect" },
+        { name: "SentinelOne", rating: "detect" },
+        { name: "Elastic EDR", rating: "partial" },
+        { name: "Kaspersky", rating: "partial" },
+        { name: "ESET", rating: "partial" }
+      ]
+    },
+    "FireBase": {
+      score: 6,
+      reason: "Firebase Realtime Database and Firestore are Google infrastructure and universally trusted at the network level. Detection relies entirely on behavioral EDR analysis. Some EDR products can detect implants using Firebase SDKs due to the characteristic DLL loading patterns, but the network channel is essentially invisible.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Strava": {
+      score: 9,
+      reason: "Strava as a C2 channel is essentially unknown to commercial AV/EDR products. No vendor has signatures for this technique. Traffic to strava.com/api/ is considered completely benign. Detection requires very advanced behavioral threat hunting. Extremely low detection across all products.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "CounterStrike 1.6": {
+      score: 9,
+      reason: "Counter-Strike 1.6 server protocol abuse as a C2 channel is highly exotic and completely unsignatured by any commercial AV. The technique was demonstrated as a proof-of-concept. No EDR vendor has behavioral or signature-based detection for this approach. Essentially zero detection probability from traditional security tools.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "lichess": {
+      score: 9,
+      reason: "Lichess as a C2 channel (encoding commands in chess moves via the Lichess API) is one of the most creative and least-detected techniques. Zero AV/EDR vendors have signatures for this. Traffic to lichess.org is entirely benign in appearance. Detection requires behavioral analysis of encoded game state patterns — functionally impossible with current commercial tools.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "chess.com": {
+      score: 9,
+      reason: "Chess.com API as a covert C2 channel has the same properties as Lichess. Completely unsignatured, and the traffic pattern is indistinguishable from a legitimate chess application. No commercial security product has detection for this technique.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "spotify": {
+      score: 8,
+      reason: "Spotify API as a C2 channel (encoding commands in playlist names, track queues, etc.) is obscure and unsignatured. AV vendors have no detection for spotify.com/api/ C2 abuse. The traffic is universally trusted in corporate environments. Very low detection probability.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "soundcloud": {
+      score: 8,
+      reason: "SoundCloud as a C2 channel (encoding data in track descriptions or waveform metadata) is essentially unknown to commercial security products. No signatures exist. Detection would require highly specialized threat hunting.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "mastodon": {
+      score: 8,
+      reason: "Mastodon as a C2 channel is extremely niche with essentially zero commercial detection. The decentralized nature means operators can choose any instance, and AV products cannot enumerate all possible Mastodon API endpoints. Excellent evasion properties.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "notion": {
+      score: 7,
+      reason: "Notion API (api.notion.com) is trusted in modern workplaces. No commercial AV has signatures for Notion-based C2. The technique uses HTTPS to Notion infrastructure and is virtually invisible at the network level. Some EDR behavioral detection possible for non-browser processes doing high-frequency Notion API polling.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Notion": {
+      score: 7,
+      reason: "Notion API (api.notion.com) is trusted in modern workplaces. No commercial AV has signatures for Notion-based C2. The technique uses HTTPS to Notion infrastructure and is virtually invisible at the network level. Some EDR behavioral detection possible for non-browser processes doing high-frequency Notion API polling.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "matrix": {
+      score: 7,
+      reason: "Matrix protocol C2 is uncommon in threat actor tooling. Self-hosted Matrix servers mean the C2 domain can be anything, making network-level blocking impossible. AV products have no Matrix-specific detection. The technique requires a custom implant which may be caught by behavioral heuristics, but the channel itself is clean.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "openai": {
+      score: 8,
+      reason: "Using OpenAI API (api.openai.com) as a C2 channel is a very novel technique. All commercial AV and EDR products universally trust OpenAI infrastructure. No signatures exist. Detection would require catching the implant behavior at the process level. The network channel is essentially undetectable.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "claude": {
+      score: 8,
+      reason: "Claude API (api.anthropic.com) as a C2 channel is novel and completely unsignatured. AV vendors do not have any detection for anthropic.com API abuse. Traffic is HTTPS and indistinguishable from legitimate AI API use. Detection would require very specific behavioral rules around non-expected processes calling AI API endpoints.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "whatsapp": {
+      score: 5,
+      reason: "WhatsApp API (api.whatsapp.com, web.whatsapp.com) is trusted traffic but less common in enterprise environments. Some EDR products flag non-browser WhatsApp API usage. Mobile-focused detection is limited on endpoints. Network-level detection is low.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "instagram": {
+      score: 6,
+      reason: "Instagram Graph API as a C2 channel is uncommon in enterprise threat contexts. graph.instagram.com traffic is trusted. No AV has specific detection for Instagram C2. The technique is more viable in consumer-focused attacks. Low detection across the board.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "youtube": {
+      score: 7,
+      reason: "YouTube as a C2 staging platform (encoding data in video descriptions, metadata) is very unusual in real-world attacks. AV vendors have no detection for youtube.com API C2 abuse. Network detection is zero. Detection would require content-level analysis of YouTube data retrieved by a process.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "virustotal": {
+      score: 7,
+      reason: "Using VirusTotal as a C2 data exchange channel is extremely creative. www.virustotal.com is universally trusted (often explicitly whitelisted by security teams). No AV product detects VT API abuse for C2 purposes. The technique is documented but detection remains near zero.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "zoom": {
+      score: 7,
+      reason: "Zoom API as a C2 channel is novel. zoom.us is universally trusted in post-2020 enterprise environments. No signatures exist. The technique requires a legitimate Zoom OAuth app and blends completely into normal traffic.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "dropbox": {
+      score: 5,
+      reason: "Dropbox C2 is a well-documented technique. Several known malware families (including APT-linked ones) have used Dropbox API. CrowdStrike and SentinelOne have behavioral detection for non-Dropbox processes using the API. Dropbox file C2 is also documented in threat intelligence, increasing detection rates.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "partial" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Dropbox": {
+      score: 5,
+      reason: "Dropbox C2 is a well-documented technique. Several known malware families have used Dropbox API. CrowdStrike and SentinelOne have behavioral detection for non-Dropbox processes using the API. Documented in threat intelligence, increasing detection rates.",
+      av: [
+        { name: "Windows Defender", rating: "partial" },
+        { name: "CrowdStrike", rating: "partial" },
+        { name: "SentinelOne", rating: "partial" },
+        { name: "Elastic EDR", rating: "partial" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "asana": {
+      score: 7,
+      reason: "Asana API as a C2 channel is uncommon. app.asana.com traffic is trusted in business environments. No commercial AV has signatures for Asana C2. Evasion is strong as long as the implant itself avoids process-level behavioral detection.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "jira": {
+      score: 7,
+      reason: "Jira (Atlassian) C2 using the REST API is very low-detection. *.atlassian.net is trusted in most enterprises. No AV signatures exist for Jira API abuse. Detection relies on Atlassian audit logs and advanced EDR behavioral rules.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Confluence": {
+      score: 7,
+      reason: "Confluence REST API abuse is similar to Jira — *.atlassian.net infrastructure is enterprise-trusted. No commercial AV has detection. Encoding commands in Confluence page content is creative and virtually undetectable at the network level.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "mattermost": {
+      score: 8,
+      reason: "Mattermost as a C2 channel is excellent for evasion due to its self-hosted nature. Operators can run their own Mattermost instance, making domain blocking impossible. No AV has generic detection for Mattermost API C2. The channel is very clean.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "cisco webex": {
+      score: 7,
+      reason: "Cisco Webex API C2 is uncommon in the wild. webex.com is trusted as enterprise infrastructure. No commercial AV has signatures. Detection requires Cisco SecureX or advanced EDR behavioral analysis.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "DuckDuckGO": {
+      score: 8,
+      reason: "DuckDuckGo as a C2 channel (using search result encoding or the DuckDuckGo API) is highly creative and essentially unsignatured. duckduckgo.com is universally trusted and often allowed by corporate web filters. Zero commercial detection.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "zulip": {
+      score: 8,
+      reason: "Zulip as a C2 channel is exotic and completely unsignatured. Self-hosted Zulip instances make domain-based blocking impossible. No AV product has detection for this technique. Very low probability of detection.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "splunk": {
+      score: 8,
+      reason: "Using Splunk HEC (HTTP Event Collector) as a C2 channel means sending data to an internal Splunk instance. This is essentially internal corporate infrastructure. Zero AV detection for this pattern. The technique essentially hides C2 traffic inside security monitoring infrastructure.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Wi-Fi Beacons": {
+      score: 9,
+      reason: "802.11 beacon frame C2 is a physical-layer technique that operates entirely outside the scope of traditional endpoint AV/EDR. No commercial security product has detection for covert channels in Wi-Fi beacon frames. Requires physical proximity but is completely undetectable by software-based security tools.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "AWS X-Ray": {
+      score: 9,
+      reason: "AWS X-Ray as a C2 channel is extremely creative and novel. xray.amazonaws.com is trusted AWS infrastructure. No commercial AV or EDR has signatures for X-Ray API abuse for C2. Detection requires AWS CloudTrail analysis and advanced threat hunting outside traditional endpoint security.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Trello": {
+      score: 7,
+      reason: "Trello API C2 is documented but uncommon in real attacks. api.trello.com is trusted. No AV has signatures. Atlassian acquired Trello so the infrastructure is treated as enterprise-grade by security tools. Low detection probability.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Blockchain Smart Contracts": {
+      score: 9,
+      reason: "Blockchain-based C2 using smart contract storage (Ethereum, etc.) is extremely difficult to detect or block. The C2 infrastructure is decentralized and censorship-resistant. No commercial AV has detection for this pattern. Blocking requires blocking all web3 RPC endpoints, which would break many legitimate applications. Very high evasion potential.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Airtable": {
+      score: 8,
+      reason: "Airtable API C2 is novel and essentially unsignatured. api.airtable.com is trusted cloud infrastructure. No commercial AV has detection. Detection requires EDR behavioral rules for non-browser Airtable API access patterns.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Basecamp": {
+      score: 8,
+      reason: "Basecamp API C2 is an obscure technique with zero commercial detection. basecampapi.com is trusted. No signatures exist. The channel is very clean and would require custom threat hunting to detect.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    },
+    "Linear": {
+      score: 9,
+      reason: "Linear API C2 is extremely novel. api.linear.app is completely trusted. No commercial security product has any detection for Linear API abuse. The GraphQL-based C2 channel is invisible to all current AV/EDR products.",
+      av: [
+        { name: "Windows Defender", rating: "miss" },
+        { name: "CrowdStrike", rating: "miss" },
+        { name: "SentinelOne", rating: "miss" },
+        { name: "Elastic EDR", rating: "miss" },
+        { name: "Kaspersky", rating: "miss" },
+        { name: "ESET", rating: "miss" }
+      ]
+    }
+  };
 
   const serviceIcons = {
     "telegram":                          "https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg",
     "twitter":                           "https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg",
     "gmail":                             "https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg",
     "slack":                             "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
+    "Slack":                             "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
     "discord":                           "https://upload.wikimedia.org/wikipedia/fr/4/4f/Discord_Logo_sans_texte.svg",
     "google Sheet":                      "https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg",
     "google Drive":                      "https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg",
@@ -718,47 +1549,38 @@
     "Wi-Fi Beacons":                     "https://upload.wikimedia.org/wikipedia/commons/a/ae/WiFi_Logo.svg",
     "AWS X-Ray":                         "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
     "Trello":                            "https://upload.wikimedia.org/wikipedia/en/8/8c/Trello_logo.svg",
-    "Blockchain Smart Contracts":        "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ethereum-icon-purple.svg",
-    "Slack":                             "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg"
+    "Blockchain Smart Contracts":        "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ethereum-icon-purple.svg"
   };
 
-  /* ═══════════════ DETECTION CLASSIFIER ═══════════════ */
+  /* ─── Detection classifier (same logic) ─── */
   function classifyDetection(raw) {
     const s = raw.trim();
-    const lower = s.toLowerCase();
     let tool = null;
-    const toolMatch = s.match(/^\[([^\]]+)\]\s*/);
-    if (toolMatch) tool = toolMatch[1];
-    let clean = toolMatch ? s.slice(toolMatch[0].length) : s;
-
+    const tm = s.match(/^\[([^\]]+)\]\s*/);
+    if (tm) tool = tm[1];
+    let clean = tm ? s.slice(tm[0].length) : s;
     if (/^(detection blog|blog|source|detection patterns)[:\s]/i.test(clean) ||
-        (/^https?:\/\//i.test(clean) && !/(api\.|graph\.|\\.com\/api|\\.com\/v[0-9]|blob\.core|\\.net\/api)/i.test(clean) && /(blog|medium|research|github\.com\/mthcht|x\.com\/)/i.test(clean))) {
-      const urlMatch = clean.match(/(https?:\/\/[^\s]+)/);
-      return { type: 'reference', tool, value: clean, url: urlMatch ? urlMatch[1] : null };
+        (/^https?:\/\//i.test(clean) && /(blog|medium|research|github\.com\/mthcht|x\.com\/)/i.test(clean))) {
+      return { type: 'reference', tool, value: clean };
     }
     if (/^(detection (strategy|logic)|comment)[:\s]/i.test(clean) ||
-        /^(high-frequency|unusual |repeated |anomalous |rare |excessive |presence of )/i.test(clean) ||
-        /^(base64 payloads)/i.test(clean)) {
+        /^(high-frequency|unusual |repeated |anomalous |rare |excessive |presence of |base64)/i.test(clean)) {
       return { type: 'logic', tool, value: clean.replace(/^(detection (strategy|logic)|comment)[:\s]*/i, '') };
     }
-    if (/user-?agent/i.test(lower)) {
-      const uaMatch = clean.match(/user-?agent[:\s]*(.+)/i);
-      return { type: 'useragent', tool, value: uaMatch ? uaMatch[1].trim() : clean };
+    if (/user-?agent/i.test(clean.toLowerCase())) {
+      const m = clean.match(/user-?agent[:\s]*(.+)/i);
+      return { type: 'useragent', tool, value: m ? m[1].trim() : clean };
     }
-    if (/^file (created|name)[:\s]/i.test(clean) || /^file[:\s]/i.test(clean) ||
-        (tool && /\bfile\b/i.test(clean) && !/https?:\/\//i.test(clean))) {
+    if (/^file [:\s]/i.test(clean) || /^file (created|name)[:\s]/i.test(clean)) {
       return { type: 'file', tool, value: clean.replace(/^file[:\s]*/i, '') };
     }
     if (/^process\s*[-:]/i.test(clean)) {
       return { type: 'process', tool, value: clean.replace(/^process\s*[-:\s]*/i, '') };
     }
-    const multiMethodMatch = clean.match(/^((?:GET|POST|PUT|DELETE|HEAD|PATCH)\s*(?:&\s*(?:GET|POST|PUT|DELETE|HEAD|PATCH)\s*)*)[-\s]*[-:]\s*/i);
+    const mm = clean.match(/^((?:GET|POST|PUT|DELETE|HEAD|PATCH)\s*(?:&\s*(?:GET|POST|PUT|DELETE|HEAD|PATCH)\s*)*)[-\s]*[-:]\s*/i);
     let method = null, urlClean = clean;
-    if (multiMethodMatch) {
-      method = multiMethodMatch[1].replace(/\s+/g, '').toUpperCase();
-      urlClean = clean.slice(multiMethodMatch[0].length);
-    }
-    if (/^url[:\s]+/i.test(urlClean)) urlClean = urlClean.replace(/^url[:\s]+/i, '').trim();
+    if (mm) { method = mm[1].replace(/\s+/g,'').toUpperCase(); urlClean = clean.slice(mm[0].length); }
+    if (/^url[:\s]+/i.test(urlClean)) urlClean = urlClean.replace(/^url[:\s]+/i,'').trim();
     if (/^https?:\/\//i.test(urlClean) || /^\*[.\/:]/.test(urlClean) || /^url[:\s]/i.test(clean)) {
       return { type: 'network', tool, method, value: urlClean };
     }
@@ -766,385 +1588,280 @@
     return { type: 'other', tool, value: clean };
   }
 
-  function renderMethodPill(method) {
+  function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function linkify(t) { return t.replace(/(https?:\/\/[^\s<>]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>'); }
+
+  function pill(method) {
     if (!method) return '';
     return method.split('&').map(m => {
-      const cls = { 'GET':'http-get','POST':'http-post','PUT':'http-put','DELETE':'http-delete','HEAD':'http-head','PATCH':'http-other' }[m] || 'http-other';
-      return `<span class="http-method ${cls}">${m}</span>`;
+      const c = {GET:'http-get',POST:'http-post',PUT:'http-put',DELETE:'http-delete',HEAD:'http-head',PATCH:'http-other'}[m]||'http-other';
+      return `<span class="http-pill ${c}">${m}</span>`;
     }).join('');
   }
 
   const TYPE_META = {
-    network:   { label: 'Network Indicators', icon: '⬡', tag: 'URL',   tagClass: 'tag-url' },
-    useragent: { label: 'User-Agent Strings', icon: '◎', tag: 'UA',    tagClass: 'tag-ua' },
-    file:      { label: 'File Artifacts',     icon: '▣', tag: 'FILE',  tagClass: 'tag-file' },
-    process:   { label: 'Process Indicators', icon: '◈', tag: 'PROC',  tagClass: 'tag-process' },
-    logic:     { label: 'Detection Logic',    icon: '◆', tag: 'LOGIC', tagClass: 'tag-logic' },
-    reference: { label: 'References',         icon: '▷', tag: 'REF',   tagClass: 'tag-ref' },
-    other:     { label: 'Other',              icon: '○', tag: 'INFO',  tagClass: 'tag-other' }
+    network:   { label:'Network Indicators', tag:'URL',   cls:'tag-url' },
+    useragent: { label:'User-Agent Strings', tag:'UA',    cls:'tag-ua' },
+    file:      { label:'File Artifacts',     tag:'FILE',  cls:'tag-file' },
+    process:   { label:'Process Indicators', tag:'PROC',  cls:'tag-process' },
+    logic:     { label:'Detection Logic',    tag:'LOGIC', cls:'tag-logic' },
+    reference: { label:'References',         tag:'REF',   cls:'tag-ref' },
+    other:     { label:'Other',              tag:'INFO',  cls:'tag-other' }
   };
 
-  function linkifyUrls(text) {
-    return text.replace(/(https?:\/\/[^\s<>]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
-  }
-
-  function escapeHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  function renderDetectionItem(d) {
-    const meta = TYPE_META[d.type];
-    const tagHtml = `<span class="det-tag ${meta.tagClass}">${meta.tag}</span>`;
-    const toolHtml = d.tool ? `<span class="det-tool">${d.tool}</span>` : '';
-    if (d.type === 'network') {
-      return `<div class="detection-item">${tagHtml}${toolHtml}<span class="det-value">${renderMethodPill(d.method)}${linkifyUrls(escapeHtml(d.value))}</span></div>`;
-    }
-    if (d.type === 'reference') {
-      return `<div class="detection-item">${tagHtml}${toolHtml}<span class="det-text">${linkifyUrls(escapeHtml(d.value))}</span></div>`;
-    }
-    if (d.type === 'logic' || d.type === 'other') {
-      return `<div class="detection-item">${tagHtml}${toolHtml}<span class="det-text">${linkifyUrls(escapeHtml(d.value))}</span></div>`;
-    }
-    return `<div class="detection-item">${tagHtml}${toolHtml}<span class="det-value">${linkifyUrls(escapeHtml(d.value))}</span></div>`;
-  }
-
-  function buildDetectionSection(detections) {
-    const classified = detections.map(classifyDetection);
-    const typeOrder = ['network','useragent','file','process','logic','reference','other'];
-    const groups = {};
-    typeOrder.forEach(t => { groups[t] = []; });
-    classified.forEach(d => { groups[d.type].push(d); });
+  function buildDetection(dets) {
+    const classified = dets.map(classifyDetection);
+    const order = ['network','useragent','file','process','logic','reference','other'];
+    const g = {}; order.forEach(t => g[t] = []);
+    classified.forEach(d => g[d.type].push(d));
     let html = '';
-    typeOrder.forEach(type => {
-      if (!groups[type].length) return;
-      const meta = TYPE_META[type];
-      html += `<div class="detection-group">`;
-      html += `<div class="detection-group-title">${meta.icon} ${meta.label} (${groups[type].length})</div>`;
-      groups[type].forEach(d => { html += renderDetectionItem(d); });
-      html += `</div>`;
+    order.forEach(type => {
+      if (!g[type].length) return;
+      const m = TYPE_META[type];
+      html += `<div class="det-group-head">${m.label} (${g[type].length})</div>`;
+      g[type].forEach(d => {
+        const tag = `<span class="det-tag ${m.cls}">${m.tag}</span>`;
+        const tool = d.tool ? `<span class="det-tool">${d.tool}</span>` : '';
+        if (d.type === 'network') {
+          html += `<div class="det-item">${tag}${tool}<span class="det-val">${pill(d.method)}${linkify(esc(d.value))}</span></div>`;
+        } else if (d.type === 'logic' || d.type === 'other' || d.type === 'reference') {
+          html += `<div class="det-item">${tag}${tool}<span class="det-txt">${linkify(esc(d.value))}</span></div>`;
+        } else {
+          html += `<div class="det-item">${tag}${tool}<span class="det-val">${linkify(esc(d.value))}</span></div>`;
+        }
+      });
     });
     return html;
   }
 
-  /* ═══════════════ SLUG / ROUTING ═══════════════ */
-  function toSlug(name) { return encodeURIComponent(name.toLowerCase().replace(/\s+/g, '-')); }
+  /* ─── Risk block renderer ─── */
+  function renderRisk(serviceName) {
+    const r = avRisk[serviceName];
+    if (!r) return '';
+    const score = r.score;
+    const pct = (score / 10) * 100;
+    const cls = score <= 4 ? 'risky' : score <= 6 ? 'medium' : 'safe';
+    const verdict = score <= 4 ? 'high detection risk' : score <= 6 ? 'moderate detection risk' : 'low detection risk';
+    const avHtml = r.av.map(a => `<span class="risk-av-tag ${a.rating}">${a.name}</span>`).join('');
+    return `<div class="risk-block">
+      <div class="risk-header">
+        <span class="risk-header-label">AV Detection Risk <span>— evasion score 1-10</span></span>
+      </div>
+      <div class="risk-body">
+        <div class="risk-score-row">
+          <div class="risk-num ${cls}">${score}</div>
+          <div class="risk-bar-col">
+            <div class="risk-bar-track"><div class="risk-bar-fill ${cls}" style="width:${pct}%"></div></div>
+            <div class="risk-verdict ${cls}">${verdict}</div>
+          </div>
+        </div>
+        <div class="risk-reason">${r.reason}</div>
+        <div class="risk-av-row">${avHtml}</div>
+      </div>
+    </div>`;
+  }
+
+  /* ─── Slug/routing ─── */
+  function toSlug(n) { return encodeURIComponent(n.toLowerCase().replace(/\s+/g,'-')); }
   let slugToName = {};
-  function buildSlugMap(services) {
-    slugToName = {};
-    services.forEach(name => { slugToName[toSlug(name)] = name; });
+  function buildSlugs(services) { slugToName={}; services.forEach(n => slugToName[toSlug(n)]=n); }
+
+  function fbText(name) {
+    const w = name.trim().split(/\s+/);
+    return w.length > 1 ? w[0][0]+w[1][0] : name.substring(0,2);
   }
 
-  /* ═══════════════ FALLBACK ICON ═══════════════ */
-  function createFallbackIcon(name, cls) {
-    const div = document.createElement('div');
-    div.className = cls || 'fallback-icon';
-    const words = name.trim().split(/\s+/);
-    div.textContent = words.length > 1 ? (words[0][0] + words[1][0]) : name.substring(0, 2);
-    return div;
-  }
-
-  function iconEl(service, imgClass, fbClass, size) {
-    const src = serviceIcons[service];
-    if (src) {
-      const img = document.createElement('img');
-      img.src = src; img.alt = service;
-      if (imgClass) img.className = imgClass;
-      img.style.width = size||''; img.style.height = size||'';
-      img.onerror = function() {
-        this.style.display = 'none';
-        this.parentNode.appendChild(createFallbackIcon(service, fbClass));
-      };
-      return img;
-    }
-    return createFallbackIcon(service, fbClass);
-  }
-
-  /* ═══════════════ LOAD DATA ═══════════════ */
-  function loadC2Data() {
-    fetch(`c2_data.json?t=${Date.now()}`, { cache: 'no-store' })
-      .then(r => r.json())
-      .then(data => {
+  /* ─── Load ─── */
+  function load() {
+    fetch(`c2_data.json?t=${Date.now()}`,{cache:'no-store'})
+      .then(r=>r.json())
+      .then(data=>{
         c2Data = data;
-        const services = Object.keys(data);
-        buildSlugMap(services);
-
-        // compute global stats
-        let totalProjects = 0, totalRules = 0;
-        services.forEach(s => {
-          totalProjects += (data[s].c2Projects || []).length;
-          totalRules += (data[s].detection || []).length;
-        });
-        document.getElementById('hstatServices').textContent = services.length;
-        document.getElementById('hstatProjects').textContent = totalProjects;
-        document.getElementById('hstatRules').textContent = totalRules;
-        document.getElementById('tileCount').textContent = services.length;
-
-        buildSidebar(services);
-        buildTiles(services);
-        handleHashRoute();
-      })
-      .catch(err => console.error('Error loading c2_data.json:', err));
+        const svcs = Object.keys(data);
+        buildSlugs(svcs);
+        let tp=0,tr=0;
+        svcs.forEach(s=>{ tp+=(data[s].c2Projects||[]).length; tr+=(data[s].detection||[]).length; });
+        document.getElementById('hcServices').textContent = svcs.length;
+        document.getElementById('hcProjects').textContent = tp;
+        document.getElementById('hcRules').textContent = tr;
+        document.getElementById('gridLabel').textContent = svcs.length + ' services indexed';
+        buildSidebar(svcs);
+        buildTiles(svcs);
+        handleRoute();
+      });
   }
 
-  /* ═══════════════ SIDEBAR ═══════════════ */
-  function buildSidebar(services) {
+  function buildSidebar(svcs) {
     const list = document.getElementById('sidebarList');
-    services.forEach(service => {
+    svcs.forEach(s => {
       const item = document.createElement('div');
       item.className = 'sidebar-item';
-      item.setAttribute('data-service', service);
-      item.setAttribute('data-search', service.toLowerCase());
+      item.setAttribute('data-service', s);
+      item.setAttribute('data-search', s.toLowerCase());
 
       const iconWrap = document.createElement('div');
-      iconWrap.className = 'sidebar-icon';
-      const src = serviceIcons[service];
+      iconWrap.className = 'sidebar-svc-icon';
+      const src = serviceIcons[s];
       if (src) {
         const img = document.createElement('img');
-        img.src = src; img.alt = service;
-        img.onerror = function() {
-          this.style.display = 'none';
-          const fb = document.createElement('span');
-          fb.className = 'sidebar-icon-fb';
-          const w = service.trim().split(/\s+/);
-          fb.textContent = w.length > 1 ? (w[0][0]+w[1][0]) : service.substring(0,2);
-          iconWrap.appendChild(fb);
-        };
+        img.src = src; img.alt = s;
+        img.onerror = () => { img.style.display='none'; const fb=document.createElement('span'); fb.className='sidebar-svc-fb'; fb.textContent=fbText(s); iconWrap.appendChild(fb); };
         iconWrap.appendChild(img);
       } else {
-        const fb = document.createElement('span');
-        fb.className = 'sidebar-icon-fb';
-        const w = service.trim().split(/\s+/);
-        fb.textContent = w.length > 1 ? (w[0][0]+w[1][0]) : service.substring(0,2);
+        const fb = document.createElement('span'); fb.className='sidebar-svc-fb'; fb.textContent=fbText(s);
         iconWrap.appendChild(fb);
       }
 
-      const label = document.createElement('div');
-      label.className = 'sidebar-label';
-      label.textContent = service;
+      const label = document.createElement('div'); label.className='sidebar-label'; label.textContent=s;
+      const cnt = (c2Data[s].c2Projects||[]).length;
+      const cntEl = document.createElement('div'); cntEl.className='sidebar-proj-count'; cntEl.textContent=cnt;
 
-      const info = c2Data[service];
-      const count = (info && info.c2Projects) ? info.c2Projects.length : 0;
-      const cnt = document.createElement('div');
-      cnt.className = 'sidebar-count';
-      cnt.textContent = count;
-
-      item.appendChild(iconWrap);
-      item.appendChild(label);
-      item.appendChild(cnt);
-      item.addEventListener('click', () => { window.location.hash = toSlug(service); });
+      item.appendChild(iconWrap); item.appendChild(label); item.appendChild(cntEl);
+      item.addEventListener('click',()=>{ window.location.hash=toSlug(s); });
       list.appendChild(item);
     });
   }
 
-  /* ═══════════════ TILES ═══════════════ */
-  function buildTiles(services) {
+  function buildTiles(svcs) {
     const grid = document.getElementById('tileGrid');
-    services.forEach(service => {
+    svcs.forEach(s => {
       const tile = document.createElement('div');
-      tile.className = 'tile';
-      tile.setAttribute('data-service', service);
-      tile.setAttribute('data-search', service.toLowerCase());
-
-      const src = serviceIcons[service];
+      tile.className='tile';
+      tile.setAttribute('data-service',s);
+      tile.setAttribute('data-search',s.toLowerCase());
+      const src = serviceIcons[s];
       if (src) {
-        const img = document.createElement('img');
-        img.src = src; img.alt = service; img.loading = 'lazy';
-        img.onerror = function() {
-          this.style.display = 'none';
-          tile.insertBefore(createFallbackIcon(service, 'fallback-icon'), this);
-        };
+        const img = document.createElement('img'); img.src=src; img.alt=s; img.loading='lazy';
+        img.onerror=()=>{ img.style.display='none'; const fb=document.createElement('div'); fb.className='tile-fb'; fb.textContent=fbText(s); tile.insertBefore(fb,img); };
         tile.appendChild(img);
       } else {
-        tile.appendChild(createFallbackIcon(service, 'fallback-icon'));
+        const fb = document.createElement('div'); fb.className='tile-fb'; fb.textContent=fbText(s);
+        tile.appendChild(fb);
       }
-
-      const label = document.createElement('div');
-      label.className = 'tile-text';
-      label.textContent = service;
-      tile.appendChild(label);
-
-      tile.addEventListener('click', () => { window.location.hash = toSlug(service); });
+      const lbl = document.createElement('div'); lbl.className='tile-text'; lbl.textContent=s;
+      tile.appendChild(lbl);
+      tile.addEventListener('click',()=>{ window.location.hash=toSlug(s); });
       grid.appendChild(tile);
     });
   }
 
-  /* ═══════════════ SEARCH / FILTER ═══════════════ */
-  document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('searchInput').addEventListener('input', function() {
-      const q = this.value.toLowerCase().trim();
-      document.querySelectorAll('.tile, .sidebar-item').forEach(el => {
+  document.addEventListener('DOMContentLoaded',()=>{
+    document.getElementById('searchInput').addEventListener('input',function(){
+      const q=this.value.toLowerCase().trim();
+      document.querySelectorAll('.tile,.sidebar-item').forEach(el=>{
         el.classList.toggle('hidden', q && !el.getAttribute('data-search').includes(q));
       });
     });
   });
 
-  /* ═══════════════ ROUTING ═══════════════ */
-  function handleHashRoute() {
+  window.addEventListener('hashchange', handleRoute);
+
+  function handleRoute() {
     const hash = window.location.hash.slice(1);
     if (!hash) { goBackSilent(); return; }
     const decoded = decodeURIComponent(hash);
     if (slugToName[decoded]) { showDetail(slugToName[decoded]); return; }
-    const lower = decoded.toLowerCase();
-    for (const [slug, name] of Object.entries(slugToName)) {
-      if (slug.toLowerCase() === lower) { showDetail(name); return; }
+    for (const [slug,name] of Object.entries(slugToName)) {
+      if (slug.toLowerCase() === decoded.toLowerCase()) { showDetail(name); return; }
     }
     goBackSilent();
   }
 
-  window.addEventListener('hashchange', handleHashRoute);
-
-  /* ═══════════════ DETAIL VIEW ═══════════════ */
   let currentService = null;
 
-  async function showDetail(serviceName) {
-    currentService = serviceName;
-    document.getElementById('homePanel').style.display = 'none';
-    document.getElementById('detailPanel').style.display = 'block';
-
-    // sidebar highlight
-    document.querySelectorAll('.sidebar-item').forEach(el => {
-      el.classList.toggle('active', el.getAttribute('data-service') === serviceName);
+  async function showDetail(name) {
+    currentService = name;
+    document.getElementById('homePanel').style.display='none';
+    document.getElementById('detailPanel').style.display='block';
+    document.querySelectorAll('.sidebar-item').forEach(el=>{
+      el.classList.toggle('active', el.getAttribute('data-service')===name);
     });
-    // scroll sidebar item into view
-    const activeItem = document.querySelector('.sidebar-item.active');
-    if (activeItem) activeItem.scrollIntoView({ block: 'nearest' });
+    const active = document.querySelector('.sidebar-item.active');
+    if (active) active.scrollIntoView({block:'nearest'});
 
-    // Header icon
-    const iconCont = document.getElementById('detailIconContainer');
-    iconCont.innerHTML = '';
-    const src = serviceIcons[serviceName];
+    // icon
+    const iconWrap = document.getElementById('detailIconWrap');
+    iconWrap.innerHTML='';
+    const src = serviceIcons[name];
     if (src) {
-      const img = document.createElement('img');
-      img.src = src; img.alt = serviceName;
-      img.style.width = '32px'; img.style.height = '32px'; img.style.objectFit = 'contain';
-      img.onerror = function() {
-        this.style.display = 'none';
-        const fb = document.createElement('div');
-        fb.className = 'detail-header-fb';
-        const w = serviceName.trim().split(/\s+/);
-        fb.textContent = w.length > 1 ? (w[0][0]+w[1][0]) : serviceName.substring(0,2);
-        iconCont.appendChild(fb);
-      };
-      iconCont.appendChild(img);
+      const img = document.createElement('img'); img.src=src; img.alt=name;
+      img.style.width='28px'; img.style.height='28px'; img.style.objectFit='contain'; img.style.opacity='0.85';
+      img.onerror=()=>{ img.style.display='none'; const fb=document.createElement('div'); fb.className='detail-top-icon-fb'; fb.textContent=fbText(name); iconWrap.appendChild(fb); };
+      iconWrap.appendChild(img);
     } else {
-      const fb = document.createElement('div');
-      fb.className = 'detail-header-fb';
-      const w = serviceName.trim().split(/\s+/);
-      fb.textContent = w.length > 1 ? (w[0][0]+w[1][0]) : serviceName.substring(0,2);
-      iconCont.appendChild(fb);
+      const fb=document.createElement('div'); fb.className='detail-top-icon-fb'; fb.textContent=fbText(name);
+      iconWrap.appendChild(fb);
     }
 
-    document.getElementById('detailTitle').textContent = serviceName;
-
-    const info = c2Data[serviceName];
+    document.getElementById('detailTitle').textContent=name;
+    const info = c2Data[name];
     if (!info) return;
-    document.title = serviceName + ' — XHYVC2';
+    document.title = name + ' — XHYVC2';
 
-    const projectCount = (info.c2Projects || []).length;
-    const detectionCount = (info.detection || []).length;
-    const classified = (info.detection || []).map(classifyDetection);
-    const urlCount = classified.filter(d => d.type === 'network').length;
-    const uaCount = classified.filter(d => d.type === 'useragent').length;
-    const logicCount = classified.filter(d => d.type === 'logic').length;
+    const pc=(info.c2Projects||[]).length;
+    const dc=(info.detection||[]).length;
+    const classified=(info.detection||[]).map(classifyDetection);
+    const nc=classified.filter(d=>d.type==='network').length;
+    const lc=classified.filter(d=>d.type==='logic').length;
 
-    document.getElementById('detailSubtitle').textContent =
-      `${projectCount} c2 project${projectCount!==1?'s':''} · ${detectionCount} detection rule${detectionCount!==1?'s':''}`;
+    document.getElementById('detailMeta').textContent=`${pc} c2 project${pc!==1?'s':''} · ${dc} detection rule${dc!==1?'s':''}`;
 
-    // Stats row
-    let statsHtml = `
-      <div class="stat-card"><span class="sicon">▣</span><div><span class="snum">${projectCount}</span><div class="slabel">C2 Projects</div></div></div>
-      <div class="stat-card"><span class="sicon">◎</span><div><span class="snum">${detectionCount}</span><div class="slabel">Detection Rules</div></div></div>`;
-    if (urlCount > 0) statsHtml += `<div class="stat-card"><span class="sicon">⬡</span><div><span class="snum">${urlCount}</span><div class="slabel">Network IOCs</div></div></div>`;
-    if (uaCount > 0)  statsHtml += `<div class="stat-card"><span class="sicon">◎</span><div><span class="snum">${uaCount}</span><div class="slabel">User-Agents</div></div></div>`;
-    if (logicCount > 0) statsHtml += `<div class="stat-card"><span class="sicon">◆</span><div><span class="snum">${logicCount}</span><div class="slabel">Logic Rules</div></div></div>`;
-    document.getElementById('statsRow').innerHTML = statsHtml;
+    let statsHtml=`<div class="stat-pill"><strong>${pc}</strong> c2 projects</div><div class="stat-pill"><strong>${dc}</strong> detection rules</div>`;
+    if(nc>0) statsHtml+=`<div class="stat-pill"><strong>${nc}</strong> network iocs</div>`;
+    if(lc>0) statsHtml+=`<div class="stat-pill"><strong>${lc}</strong> logic rules</div>`;
+    document.getElementById('statsRow').innerHTML=statsHtml;
 
-    // Projects section
-    let projectsHtml = `<div class="section-card">
-      <div class="section-header" id="sec-projects" onclick="toggleSection('sec-projects')">
-        <span class="sec-label">▣ C2 Projects</span>
-        <span class="sec-count">${projectCount}</span>
-        <span class="chevron">▾</span>
-      </div>
-      <div class="section-body">`;
-    (info.c2Projects || []).forEach(url => {
-      projectsHtml += `<div class="project-item">
-        <a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(url)}</a>
-      </div>`;
-    });
-    projectsHtml += `</div></div>`;
+    document.getElementById('riskBlock').innerHTML=renderRisk(name);
 
-    // Detection section
-    let detHtml = `<div class="section-card">
-      <div class="section-header" id="sec-detection" onclick="toggleSection('sec-detection')">
-        <span class="sec-label">◎ Detection Indicators</span>
-        <span class="sec-count">${detectionCount}</span>
-        <span class="chevron">▾</span>
-      </div>
-      <div class="section-body">`;
-    detHtml += buildDetectionSection(info.detection || []);
-    detHtml += `</div></div>`;
+    let projHtml=`<div class="sec-card"><div class="sec-head" id="sh-proj" onclick="toggleSec('sh-proj')"><span class="sec-head-label">c2 projects</span><span class="sec-cnt">${pc}</span><span class="sec-chev">&#9660;</span></div><div class="sec-body">`;
+    (info.c2Projects||[]).forEach(u=>{ projHtml+=`<div class="proj-item"><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></div>`; });
+    projHtml+=`</div></div>`;
 
-    document.getElementById('detailContent').innerHTML = projectsHtml + detHtml + '<div id="descTarget"></div>';
+    let detHtml=`<div class="sec-card"><div class="sec-head" id="sh-det" onclick="toggleSec('sh-det')"><span class="sec-head-label">detection indicators</span><span class="sec-cnt">${dc}</span><span class="sec-chev">&#9660;</span></div><div class="sec-body">`;
+    detHtml+=buildDetection(info.detection||[]);
+    detHtml+=`</div></div>`;
 
-    // Description (async)
-    const descTarget = document.getElementById('descTarget');
-    let mdText = null;
+    document.getElementById('detailContent').innerHTML=projHtml+detHtml+'<div id="descTarget"></div>';
+
+    const descTarget=document.getElementById('descTarget');
+    let md=null;
     if (info.descriptionUrl) {
-      try {
-        const r = await fetch(info.descriptionUrl);
-        if (r.ok) mdText = await r.text();
-      } catch(e) {}
-    } else if (info.description) {
-      mdText = info.description;
-    }
-    if (mdText) {
-      const descHtml = marked.parse(mdText);
-      descTarget.innerHTML = `<div class="section-card">
-        <div class="section-header" id="sec-desc" onclick="toggleSection('sec-desc')">
-          <span class="sec-label">▷ Description &amp; Analysis</span>
-          <span class="chevron">▾</span>
-        </div>
-        <div class="section-body"><div class="desc-section">${descHtml}</div></div>
-      </div>`;
+      try { const r=await fetch(info.descriptionUrl); if(r.ok) md=await r.text(); } catch(e){}
+    } else if (info.description) { md=info.description; }
+    if (md) {
+      descTarget.innerHTML=`<div class="sec-card"><div class="sec-head" id="sh-desc" onclick="toggleSec('sh-desc')"><span class="sec-head-label">description & analysis</span><span class="sec-chev">&#9660;</span></div><div class="sec-body"><div class="desc-body">${marked.parse(md)}</div></div></div>`;
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top:0,behavior:'smooth'});
   }
 
-  function toggleSection(id) {
-    const h = document.getElementById(id);
-    const b = h.nextElementSibling;
+  function toggleSec(id) {
+    const h=document.getElementById(id);
     h.classList.toggle('collapsed');
-    b.classList.toggle('collapsed');
+    h.nextElementSibling.classList.toggle('collapsed');
   }
 
-  function goBack() { window.location.hash = ''; }
+  function goBack() { window.location.hash=''; }
   function goBackSilent() {
-    currentService = null;
-    document.title = 'XHYVC2 — Living off the Land C2';
-    document.getElementById('homePanel').style.display = 'block';
-    document.getElementById('detailPanel').style.display = 'none';
-    document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
+    currentService=null;
+    document.title='XHYVC2';
+    document.getElementById('homePanel').style.display='block';
+    document.getElementById('detailPanel').style.display='none';
+    document.querySelectorAll('.sidebar-item').forEach(el=>el.classList.remove('active'));
   }
 
-  function copyShareLink() {
+  function copyLink() {
     if (!currentService) return;
-    const url = window.location.origin + window.location.pathname + '#' + toSlug(currentService);
-    navigator.clipboard.writeText(url).then(() => {
-      const btn = document.querySelector('.copy-link-btn');
-      btn.innerHTML = '✓ copied'; btn.classList.add('copied');
-      setTimeout(() => { btn.innerHTML = '&#128279; copy link'; btn.classList.remove('copied'); }, 2000);
-    }).catch(() => {
-      const ta = document.createElement('textarea');
-      ta.value = url; ta.style.position='fixed'; ta.style.opacity='0';
-      document.body.appendChild(ta); ta.select(); document.execCommand('copy');
-      document.body.removeChild(ta);
-    });
+    const url=window.location.origin+window.location.pathname+'#'+toSlug(currentService);
+    navigator.clipboard.writeText(url).then(()=>{
+      const btn=document.querySelector('.detail-copy-btn');
+      btn.textContent='copied'; btn.classList.add('copied');
+      setTimeout(()=>{ btn.textContent='copy link'; btn.classList.remove('copied'); },2000);
+    }).catch(()=>{});
   }
 
-  marked.setOptions({ gfm: true, breaks: true });
-  loadC2Data();
+  marked.setOptions({gfm:true,breaks:true});
+  load();
 </script>
 </body>
 </html>
